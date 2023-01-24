@@ -24,6 +24,10 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 
 <br>
 
+---
+
+<br>
+
 ### SSR (Server Side Rendering)
 
     웹 사이트에 접속하면 서버가 필요한 데이터를 가져와서 html 파일을 만드는 것을 의미 = 서버가 페이지를 그린다
@@ -52,6 +56,10 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 
 <br>
 
+---
+
+<br>
+
 ### SPA (Single Page Application)
 
     페이지가 하나인 애플리케이션(.html 파일이 1개)
@@ -64,6 +72,12 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 
 -   CSR
 
+<br>
+
+---
+
+<br>
+
 ### MPA (Multi Page Application)
 
     페이지가 여러개인 애플리케이션(.html 파일이 여러개)
@@ -74,7 +88,15 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 
 <br>
 
+---
+
+<br>
+
 ### - REACT는 CSR에 SPA에 최적화 되어 있다.
+
+<br>
+
+---
 
 <br>
 
@@ -91,6 +113,10 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 2. CSS를 구조별로 분류하여, 스타일 규칙 생성
 3. DOM 객체, 스타일 규칙을 합쳐서 화면(렌더트리) 생성
 4. 렌더트리를 기준으로 레이아웃 배치 및 스타일 작업
+
+<br>
+
+---
 
 <br>
 
