@@ -10,6 +10,8 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 
 -   클라이언트가 index.html 이라는 빈 파일을 받은 후에 필요한 js 파일을 받아오게 되는데 이 파일은 굉장히 무겁기 때문에 로딩이 느려짐
 
+<br>
+
 > 장점
 
 -   초기 렌더링 이후 렌더링 속도가 굉장히 빠르다
@@ -33,6 +35,8 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 3. 렌더링된 페이지를 사용자에게 전달
 
 4. js가 로드되기도 전에 완성된 페이지를 사용자가 확인할 수 있음
+
+<br>
 
 > 장점
 
@@ -77,6 +81,8 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 ### 렌더링(Rendering)이란?
 
     웹사이트 코드가 사용자가 방문할 때 보게 되는 대화형 페이지로 바꾸는 웹 개발에 사용되는 절차
+
+<br>
 
 -   렌더링 과정
 
