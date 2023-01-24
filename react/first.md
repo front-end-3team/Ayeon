@@ -2,9 +2,6 @@
 
 csr, ssr, reender, spa, mpa, bundling, webpack
 
-<br>
-
----
 
 <br>
 
