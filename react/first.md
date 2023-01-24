@@ -2,6 +2,12 @@
 
 csr, ssr, reender, spa, mpa, bundling, webpack
 
+<br>
+
+---
+
+<br>
+
 ### CSR (Client Side Rendering)
 
     클라이언트측에서 애플리케이션 렌더링이 이루어지는 것을 의미 = 사용자가 웹 페이지를 그린다
@@ -127,6 +133,8 @@ csr, ssr, reender, spa, mpa, bundling, webpack
 -   모듈(module) -> 분리된 파일 => 분리된 파일을 하나로 묶어주는 것(번들링)
 
 -   이러한 번들링 기능을 지원하는 번들러 중에서 대표적으로 현재 많이 사용되어지고 있는 것이 [Webpack]이다
+
+<
 
 ### Webpack이란?
 
