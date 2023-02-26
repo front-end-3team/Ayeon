@@ -13,6 +13,28 @@ function State1() {
   */
 
     const [list, setList] = useState(PlayListMock.playlist);
+
+    const [inputTitle, setInputTitle] = useState('');
+    const [inputSinger, setInputSinger] = useState('');
+
+    const [state, setState] = useState(false);
+
+    const onChangeTitle = (e) => {
+        setInputTitle(e.target.value);
+    };
+
+    const onChangeSinger = (e) => {
+        setInputSinger(e.target.value);
+    };
+
+    const onAddList = () => {
+        list.push({ title: inputTitle, singer: inputSinger });
+        setState((prev) => !prev);
+    };
+
+    /*
+    비구조화 할당
+
     const [input, setInput] = useState({
         title: '',
         singer: '',
@@ -30,6 +52,7 @@ function State1() {
         const newList = { title, singer };
         setList([...list, newList]);
     };
+    */
 
     const onRemoveBtn = (title) => {
         setList(list.filter((el) => title != el.title));
@@ -51,10 +74,10 @@ function State1() {
             </ul>
             <div>
                 <p>
-                    곡명 : <input name="title" value={title} onChange={onChangeInput} />
+                    곡명 : <input onChange={onChangeTitle} />
                 </p>
                 <p>
-                    가수/작곡 : <input name="singer" value={singer} onChange={onChangeInput} />
+                    가수/작곡 : <input onChange={onChangeSinger} />
                 </p>
                 <p>
                     <button onClick={onAddList}>추가</button>

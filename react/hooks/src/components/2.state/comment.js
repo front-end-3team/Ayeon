@@ -1,23 +1,31 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-function Comment({ post, onRemoveComment, onUpdateComment }) {
-    const [isEdit, setIsEdit] = useState();
+function Comment({ comment, onRemoveComment }) {
+    /* 댓글 수정 */
+    const [updateContent, setUpdateContent] = useState('');
+
+    const onNewContent = (e) => {
+        setUpdateContent(e.target.value);
+    };
 
     return (
         <>
-            {post.map((el) => (
+            {comment.map((el) => (
                 <S.CommentItem>
                     <p>
                         작성자: <span>{el.User.nickname}</span>
                     </p>
                     <p>
-                        댓글 내용: <span>{el.content}</span>
+                        댓글 내용:
+                        <span>{el.content}</span>
+                        <button>수정</button>
+                        <button onClick={() => onRemoveComment(el.User.nickname, el.myComment)}>
+                            삭제
+                        </button>
                     </p>
-                    <button onClick={() => onUpdateComment(el.id, el.content)}>수정</button>
-                    <button onClick={() => onRemoveComment(el.User.nickname, el.myComment)}>
-                        삭제
-                    </button>
+                    {/* <input onChange={onNewContent} />
+                        <button>수정하기</button> */}
                 </S.CommentItem>
             ))}
         </>
@@ -25,10 +33,11 @@ function Comment({ post, onRemoveComment, onUpdateComment }) {
 }
 export default Comment;
 
-const CommentItem = styled.div`
+const CommentItem = styled.li`
     border: 1px solid #000;
     margin: 10px;
     padding: 10px;
+    list-style: none;
 
     & button {
         margin: 3px;

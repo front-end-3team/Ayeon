@@ -12,7 +12,7 @@ function State2() {
         
     Q2. 댓글 작성 수정 삭제 기능을 구현해보세요 :)
             1. 댓글 작성 기능
-            2. 댓글 수정 기능
+            2. 댓글 수정 기능 
             3. 댓글 삭제 기능 ( 본인이 작성한 댓글만 삭제할 수 있습니다, myComment 활용 )
     */
 
@@ -32,6 +32,7 @@ function State2() {
                 id: 1,
                 content: '오늘도 화이팅입니다!',
                 myComment: false,
+                update: false,
             },
             {
                 User: {
@@ -40,6 +41,7 @@ function State2() {
                 id: 2,
                 content: '오늘도 화이팅입니다!',
                 myComment: false,
+                update: false,
             },
             {
                 User: {
@@ -48,6 +50,7 @@ function State2() {
                 id: 3,
                 content: '오늘도 화이팅입니다!',
                 myComment: false,
+                update: false,
             },
             {
                 User: {
@@ -56,6 +59,7 @@ function State2() {
                 id: 4,
                 content: '오늘도 화이팅입니다!',
                 myComment: false,
+                update: false,
             },
             {
                 User: {
@@ -64,6 +68,7 @@ function State2() {
                 id: 5,
                 content: '오늘도 화이팅입니다!',
                 myComment: false,
+                update: false,
             },
         ],
     });
@@ -79,6 +84,7 @@ function State2() {
         setContentInput(e.target.value);
     };
 
+    /* 댓글 추가 */
     const onAddComment = () => {
         setPost((prev) => ({
             ...prev,
@@ -89,19 +95,13 @@ function State2() {
                     id: post.Comments.length + 1,
                     content: contentInput,
                     myComment: true,
+                    update: false,
                 },
             ],
         }));
     };
 
-    const onUpdateComment = (id, content) => {
-        const newComment = { ...post };
-        const comment = newComment.Comments.find((comment) => comment.id === id);
-        comment.content = content;
-
-        setPost(newComment);
-    };
-
+    /* 댓글 삭제 */
     const onRemoveComment = (nickname, myComment) => {
         myComment &&
             setPost((prev) => ({
@@ -140,9 +140,10 @@ function State2() {
                 {/* list */}
                 {/* 예시 데이터 */}
                 <Comment
-                    post={post.Comments}
+                    comment={post.Comments}
                     onRemoveComment={onRemoveComment}
-                    onUpdateComment={onUpdateComment}
+                    setPost={setPost}
+                    post={post}
                 />
             </S.CommentList>
         </S.Wrapper>

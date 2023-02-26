@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import ProductCard from '../../components/2.state/product';
@@ -42,10 +43,12 @@ function State3() {
 
     console.log(productList);
 
+    const [list, setList] = useState(productList.products);
+
     const navigate = useNavigate();
 
     const onNavigateDetailPage = () => {
-        navigate(`/state/detail/1`);
+        navigate(`/state/detail/${list.productNumber}`);
     };
 
     return (
@@ -53,13 +56,12 @@ function State3() {
             <h1>문제3</h1>
             <h2>상품 목록</h2>
             <ul>
-                {/* list */}
-                {/* 예시 데이터 */}
-                <ProductCard onNavigate={onNavigateDetailPage} />
+                <ProductCard list={list} onNavigate={onNavigateDetailPage} />
             </ul>
         </>
     );
 }
+
 export default State3;
 
 const Item = styled.li`
