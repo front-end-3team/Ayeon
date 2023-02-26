@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-function DetailPage() {
+
+function DetailPage({}) {
     const params = useParams();
     console.log(params.productNumber);
 
@@ -13,6 +14,8 @@ function DetailPage() {
             단, 없는 번호 상품으로 접근 시 state페이지로 돌아가도록 구현해주세요
             */}
             {params.productNumber}
+
+            <div>야야</div>
         </div>
     );
 }

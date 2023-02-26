@@ -24,7 +24,7 @@ function State3() {
 
       ex) /state/detail/301389
 
-      해당 상품번호를 주소에서 부터 받아와야합니다.
+      해당 상품번호를 주소에서부터 받아와야합니다.
       받아온 데이터를 토대로
 
       useEffect를 활용하여 products 데이터에서

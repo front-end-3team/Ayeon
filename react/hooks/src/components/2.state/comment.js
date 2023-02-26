@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-function Comment({ comment, onRemoveComment }) {
+function Comment({ comment, onRemoveComment, onUpdateComment, onUpdateAfComment }) {
     /* 댓글 수정 */
     const [updateContent, setUpdateContent] = useState('');
 
@@ -18,19 +18,31 @@ function Comment({ comment, onRemoveComment }) {
                     </p>
                     <p>
                         댓글 내용:
-                        <span>{el.content}</span>
-                        <button>수정</button>
-                        <button onClick={() => onRemoveComment(el.User.nickname, el.myComment)}>
-                            삭제
-                        </button>
+                        {el.update ? (
+                            <>
+                                <input onChange={onNewContent} />
+                                <button onClick={() => onUpdateAfComment(el.id, updateContent)}>
+                                    수정 완료
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <span>{el.content}</span>
+                                <button onClick={() => onUpdateComment(el.id)}>수정</button>
+                                <button
+                                    onClick={() => onRemoveComment(el.User.nickname, el.myComment)}
+                                >
+                                    삭제
+                                </button>
+                            </>
+                        )}
                     </p>
-                    {/* <input onChange={onNewContent} />
-                        <button>수정하기</button> */}
                 </S.CommentItem>
             ))}
         </>
     );
 }
+
 export default Comment;
 
 const CommentItem = styled.li`

@@ -25,7 +25,7 @@ const Item = styled.li`
     width: 300px;
     margin: 16px auto;
     list-style: none;
-    padding: 5px;
+    padding-left: 10px;
 `;
 
 const S = {

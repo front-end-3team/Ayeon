@@ -11,9 +11,9 @@ function State2() {
         Components는 src/components/state/comment.js를 활용하세요
         
     Q2. 댓글 작성 수정 삭제 기능을 구현해보세요 :)
-            1. 댓글 작성 기능
-            2. 댓글 수정 기능 
-            3. 댓글 삭제 기능 ( 본인이 작성한 댓글만 삭제할 수 있습니다, myComment 활용 )
+            1. 댓글 작성 기능 o
+            2. 댓글 수정 기능 x
+            3. 댓글 삭제 기능 ( 본인이 작성한 댓글만 삭제할 수 있습니다, myComment 활용 ) o
     */
 
     const [post, setPost] = useState({
@@ -101,6 +101,27 @@ function State2() {
         }));
     };
 
+    /* 댓글 수정 */
+    const onUpdateComment = (id) => {
+        const newPost = { ...post };
+        const comment = newPost.Comments.find((comment) => comment.id === id);
+        comment.update = true;
+
+        setPost(newPost);
+        console.log(post.Comments);
+    };
+
+    /* 댓글 수정 완료 */
+    const onUpdateAfComment = (id, updateContent) => {
+        const newPost = { ...post };
+        const updateComment = newPost.Comments.find((comment) => comment.id === id);
+        updateComment.content = updateContent;
+        updateComment.update = false;
+
+        setPost(newPost);
+        console.log(post.Comments);
+    };
+
     /* 댓글 삭제 */
     const onRemoveComment = (nickname, myComment) => {
         myComment &&
@@ -142,13 +163,14 @@ function State2() {
                 <Comment
                     comment={post.Comments}
                     onRemoveComment={onRemoveComment}
-                    setPost={setPost}
-                    post={post}
+                    onUpdateComment={onUpdateComment}
+                    onUpdateAfComment={onUpdateAfComment}
                 />
             </S.CommentList>
         </S.Wrapper>
     );
 }
+
 export default State2;
 
 const Wrapper = styled.div`
