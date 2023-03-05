@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 
+// 가상 공간
 export const ModalContext = createContext();
 
 const ModalContextProvider = ({ children }) => {
