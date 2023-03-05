@@ -20,7 +20,7 @@ function State3() {
     
     3.
       상세페이지 주소에는 클릭한 상품의 상품번호가 노출되어야 합니다
-      해당 router (주소설정)은 제가 모두 app.js에 해두었습니다
+      해당 router(주소 설정)은 제가 모두 app.js에 해두었습니다
 
       ex) /state/detail/301389
 
@@ -34,7 +34,6 @@ function State3() {
         본래 로직이라한다면 주소의 상품번호를 백엔드에게 전송하여 데이터를 받아오는 로직이었을겁니다
         그러나 백엔드가 없기에 최대한 유사하게 페이지를 구사해보았습니다
 
-
       상세페이지는 pages/Detail.js이며
 
     4. 상세 페이지에서는 페이지의 상세 내용을 확인할 수 있으며
@@ -47,7 +46,7 @@ function State3() {
 
     const navigate = useNavigate();
 
-    const onNavigateDetailPage = () => {
+    const onNavigateDetailPage = (list) => {
         navigate(`/state/detail/${list.productNumber}`);
     };
 
@@ -56,7 +55,7 @@ function State3() {
             <h1>문제3</h1>
             <h2>상품 목록</h2>
             <ul>
-                <ProductCard list={list} onNavigate={onNavigateDetailPage} />
+                <ProductCard list={list} onNavigate={() => onNavigateDetailPage(list)} />
             </ul>
         </>
     );
