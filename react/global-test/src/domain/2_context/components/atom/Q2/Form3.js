@@ -1,8 +1,8 @@
-const ContextQ2Form3 = () => {
+const ContextQ2Form3 = ({ user, onRemoveAll }) => {
     return (
         <div>
             <h1>Q2Form3</h1>
-            <button>RESET</button>
+            <button onClick={() => onRemoveAll(user.id)}>RESET</button>
         </div>
     );
 };

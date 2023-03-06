@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-// 가상 공간
+// 비어 있는 저장소
 export const ModalContext = createContext();
 
 const ModalContextProvider = ({ children }) => {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NavigateButton from '../../../../components/NavigateButton';
+import { ADD_USER, REMOVE_ALL, useUserDispatch, useUserState } from '../../../../store/3_context';
 import ContextQ2Form from '../atom/Q2/Form';
 import ContextQ2Form3 from '../atom/Q2/Form3';
 
@@ -13,7 +14,7 @@ const ContextQ2Page = () => {
         (단, isEdit이 true인 데이터도 전역으로 관리해주세요.)
   */
 
-    const [userList, setUserList] = useState([{ id: 1, name: '홍길동', nickname: '히히' }]);
+    // const [userList, setUserList] = useState([{ id: 1, name: '홍길동', nickname: '히히' }]);
 
     /*
     단, userList 상태 관리는 전역으로 관리하고 비즈니스 로직도 분리하기 위해
@@ -24,11 +25,24 @@ const ContextQ2Page = () => {
     관련 로직은 src/store/3_context.js에 구현해주세요
   */
 
+    const user = useUserState();
+    const dispatch = useUserDispatch();
+
+    const onAddUser = (name, nickname) => {
+        dispatch(ADD_USER({ name, nickname }));
+    };
+
+    const onRemoveAll = (id) => {
+        dispatch(REMOVE_ALL({ id }));
+    };
+
+    console.log(user);
+
     return (
         <>
             <h2>문제 2 - 2</h2>
-            <ContextQ2Form />
-            <ContextQ2Form3 />
+            <ContextQ2Form onSubmit={onAddUser} user={user} />
+            <ContextQ2Form3 onRemoveAll={onRemoveAll} user={user} />
             <div
                 style={{
                     marginTop: '32px',
